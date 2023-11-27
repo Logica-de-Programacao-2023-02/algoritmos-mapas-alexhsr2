@@ -69,6 +69,42 @@ func main() {
 	fmt.Printf("A soma dos valores no mapa é: %d\n", soma)
 }
 
+8- ckage main
+
+import (
+	"fmt"
+)
+
+func calculateExpenses(balance map[string]float64) map[string]float64 {
+	total := 0.0
+	for _, amount := range balance {
+		total += amount
+	}
+
+	average := total / float64(len(balance))
+
+	adjustedBalance := make(map[string]float64)
+	for name, amount := range balance {
+		adjustedBalance[name] = difference
+	}
+
+	return adjustedBalance
+}
+
+func main() {
+	expenses := map[string]float64{
+		"Lucas": 10.0,
+		"Marcus": 12.0,
+		"Alex":   30.0,
+		"Nick":  13.0,
+	}
+
+	adjustedBalance := calculateExpenses(expenses)
+
+	for name, amount := range adjustedBalance {
+		fmt.Printf("%s: %.2f\n", name, amount)
+	}
+}
 10- package main
 
 import "fmt"

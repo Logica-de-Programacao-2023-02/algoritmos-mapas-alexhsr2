@@ -68,3 +68,30 @@ func main() {
 
 	fmt.Printf("A soma dos valores no mapa é: %d\n", soma)
 }
+
+10- package main
+
+import "fmt"
+
+func countpairs(slice []int) map[[2]int]int {
+	occurrences := make(map[[2]int]int)
+
+	for i := 0; i < len(slice); i++ {
+		for j := i + 1; j < len(slice); j++ {
+			pair := [2]int{slice[i], slice[j]}
+			occurrences[pair]++
+		}
+	}
+
+	return occurrences
+}
+
+func main() {
+	numberSlice  := []int{1, 2, 3, 8, 1, 7, 6, 5}
+
+	occurrences := countpairs(numberSlice )
+
+	for pair, occurrence := range occurrences {
+		fmt.Printf("%v: %d\n", par, occurrence)
+	}
+}

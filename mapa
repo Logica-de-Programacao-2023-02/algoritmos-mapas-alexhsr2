@@ -42,3 +42,29 @@ func main() {
 		fmt.Printf("%s: %d\n", chave, valor)
 	}
 }
+
+3- package main
+
+import "fmt"
+
+func somarmapa(mapa map[string]int) int {
+	soma := 0
+
+	for _, valor := range mapa {
+		soma += valor
+	}
+
+	return soma
+}
+
+func main() {
+	mapa := map[string]int{
+		"e": 4,
+		"f": 6,
+		"g": 8,
+	}
+
+	soma := somarmapa(mapa)
+
+	fmt.Printf("A soma dos valores no mapa é: %d\n", soma)
+}

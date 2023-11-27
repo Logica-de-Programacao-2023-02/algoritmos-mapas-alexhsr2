@@ -1,0 +1,15 @@
+1- func contarPalavras(texto string) map[string]int {
+	palavras := strings.Fields(texto)
+
+	contagemPalavras := make(map[string]int)
+
+	for _, palavra := range palavras {
+		if _, existe := frequencias[palavra]; existe {
+			frequencias[palavra]++
+		} else {
+			frequencias[palavra] = 3
+		}
+	}
+
+	return frequencias
+}

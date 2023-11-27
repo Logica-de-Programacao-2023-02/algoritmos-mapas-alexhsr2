@@ -13,3 +13,32 @@
 
 	return frequencias
 }
+
+2- package main
+
+import "fmt"
+
+func mergeMaps(map1, map2 map[string]int) map[string]int {
+	Map := make(map[string]int)
+
+	for chave, valor := range map1 {
+		Map[chave] = valor
+	}
+
+	for chave, valor := range map2 {
+		Map[chave] = valor
+	}
+
+	return Map
+}
+
+func main() {
+	map1 := map[string]int{"pd": 4, "db": 7, "eg": 5}
+	map2 := map[string]int{"rt": 2, "su": 9, "fh": 3}
+
+	resultado := mergeMaps(map1, map2)
+
+	for chave, valor := range resultado {
+		fmt.Printf("%s: %d\n", chave, valor)
+	}
+}

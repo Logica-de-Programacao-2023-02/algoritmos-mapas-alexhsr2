@@ -69,7 +69,92 @@ func main() {
 	fmt.Printf("A soma dos valores no mapa é: %d\n", soma)
 }
 
-7-package main
+4- package main
+
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
+
+func ordenar(palavra string) string {
+	letras := strings.Split(palavra, "")
+	sort.Strings(letras)
+	return strings.Join(letras, "")
+}
+
+func Anagramas(palavras []string) map[string][]string {
+	anagramas := make(map[string][]string)
+
+	for _, palavra := range palavras {
+		chave := ordenar(palavra)
+		anagramas[chave] = append(anagramas[chave], palavra)
+	}
+
+	return anagramas
+}
+
+func main() {
+	palavras := []string{"odio", "bola", "moto", "fuga", "gato", "sim", "casa", "jogo"}
+
+	gruposAnagramas := Anagramas(palavras)
+
+	for chave, grupo := range gruposAnagramas {
+		fmt.Printf("%s: %v\n", chave, grupo)
+	}
+
+5- package main
+
+import "fmt"
+
+func countcaracteres(texto string) map[rune]int {
+	ocorrencia := make(map[rune]int)
+
+	for _, char := range texto {
+		ocorrencia[char]++
+	}
+
+	return ocorrencia
+}
+
+func main() {
+	texto := "Eu estor feliz"
+	ocorrencia := countcaracteres(texto)
+
+	for char, ponto := range ocorrencia {
+		fmt.Printf("%c: %d\n", char, ponto)
+	}
+}
+
+6-package main
+
+import "fmt"
+
+func main() {
+	n1 := map[string]int{"carro": 1, "caminhão": 2, "moto": 3, "barco": 4}
+	n2 := map[string]int{"carro": 2, "caminhão": 2, "moto": 1, "barco": 3}
+
+	mapa := []map[string]int{n1, n2}
+	totalpalavra := unircontagens(mapa)
+
+	for palavra, contagem := range totalpalavra {
+		fmt.Printf("%s: %d\n", palavra, contagem)
+	}
+
+}
+
+func unircontagens(c []map[string]int) map[string]int {
+	calculo := make(map[string]int)
+
+	for _, palavras := range c {
+		for palavra, contagem := range palavras {
+			calculo[palavra] += contagem
+		}
+	}
+	return calculo
+}
+
+7- package main
 
 import (
 	"fmt"
@@ -142,6 +227,31 @@ func main() {
 
 	for name, amount := range adjustedBalance {
 		fmt.Printf("%s: %.2f\n", name, amount)
+	}
+}
+
+9-package main
+
+import "fmt"
+
+func Sequencia(n int) map[int]int {
+	sequenciafib := make(map[int]int)
+
+	x, y := 0, 1
+	for i := 0; a <= n; i++ {
+		sequenciafib[i] = a
+		x, y = y, x+y
+	}
+
+	return sequenciafib
+}
+
+func main() {
+	n := 60
+	sequenciafib := Sequencia(n)
+
+	for indice, valor := range sequenciafib {
+		fmt.Printf("%d: %d\n", indice, valor)
 	}
 }
 
